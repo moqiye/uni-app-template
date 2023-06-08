@@ -1,3 +1,10 @@
+<!--
+ * @Author: qiye
+ * @LastEditors: qiye
+ * @description: page description
+ * @Date: 2023-06-08 11:52:57
+ * @LastEditTime: 2023-06-08 15:56:40
+-->
 <template>
   <view class="content">
     <image class="logo" src="/static/logo.png" />

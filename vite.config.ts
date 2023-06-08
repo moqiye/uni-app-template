@@ -7,6 +7,7 @@ export default ({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
   return defineConfig({
+    base: './',
     plugins: [
       uni(),
       AutoImport({
@@ -27,6 +28,7 @@ export default ({ mode }) => {
     },
     build: {
       sourcemap: env.VITE_BUILD_SOURCEMAP === 'true',
+
       minify: 'terser',
       terserOptions: {
         compress: {
