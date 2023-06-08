@@ -3,13 +3,13 @@
  * @LastEditors: qiye
  * @description: page description
  * @Date: 2023-06-08 11:52:57
- * @LastEditTime: 2023-06-08 15:56:40
+ * @LastEditTime: 2023-06-08 18:13:53
 -->
 <template>
   <view class="content">
     <image class="logo" src="/static/logo.png" />
     <view class="text-area">
-      <text class="title">{{ title }}</text>
+      <text class="title">{{ 'Hello' }}</text>
     </view>
   </view>
 </template>

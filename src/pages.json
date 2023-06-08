@@ -1,24 +1,76 @@
+/*
+ * @Author: qiye
+ * @LastEditors: qiye
+ * @description: page description
+ * @Date: 2023-06-08 11:52:57
+ * @LastEditTime: 2023-06-08 19:53:59
+ */
 {
 	"easycom": {
 		"autoscan": true,
 		"custom": {
+			// uni-ui 规则如下配置
 			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
 		}
 	},
 	"pages": [
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		},
+	
 		{
 			"path": "pages/login/login",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "登录"
 			}
-		}
+		},
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/shelf/shelf",
+			"style": {
+				"navigationBarTitleText": "书架"
+			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
 	],
+
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"height": "50px",
+		"fontSize": "10px",
+		"iconWidth": "24px",
+		"spacing": "3px",
+    	"iconfontSrc":"static/iconfont.ttf", // app tabbar 字体.ttf文件路径 app 3.4.4+
+		"list":[
+			{
+		"pagePath": "pages/home/home",
+		"text": "首页",
+		"iconPath": "static/logo.png"
+	
+		},
+			{
+		"pagePath": "pages/shelf/shelf",
+		"text": "书架",
+		"iconPath": "static/logo.png"
+		},
+			{
+		"pagePath": "pages/my/my",
+		"text": "我的",
+		"iconPath": "static/logo.png"
+		},
+	]
+	},
+
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
