@@ -35,7 +35,7 @@
         <uni-easyinput type="text" v-model="formData.username" placeholder="请输入用户名" />
       </uni-forms-item>
       <uni-forms-item required name="password" label="密码">
-        <uni-easyinput type="text" v-model="formData.username" placeholder="请输入用户名" />
+        <uni-easyinput type="text" v-model="formData.password" placeholder="请输入用户名" />
       </uni-forms-item>
     </uni-forms>
     <button class="btn-success" @click="handleLogin">登录</button>
