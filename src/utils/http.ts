@@ -3,16 +3,14 @@
  * @LastEditors: qiye
  * @description: page description
  * @Date: 2023-06-08 14:36:58
- * @LastEditTime: 2023-06-08 15:33:51
+ * @LastEditTime: 2023-06-08 16:33:34
  */
 // src/utils/http/request.js
 
 import { getToken } from '@/utils/auth';
-import { useUserStore } from '@/store';
-import type {IResponse} from '@/types/global';
+import type { IResponse } from '@/types/global';
 
 let baseUrl = import.meta.env.VITE_APP_API_BASE_URL;
-
 
 const request = ({
   url = '',
@@ -22,15 +20,15 @@ const request = ({
   hideLoading = true,
   hideMessage = false,
 }: {
-    url: string, 
-    data: any, 
-    method: "POST" | "OPTIONS" | "GET" | "HEAD" | "PUT" | "DELETE" | "TRACE" | "CONNECT" | undefined , 
-    header: any,
-    hideLoading: boolean, 
-    hideMessage: boolean
-  }) => {
-  const userStore = useUserStore();
-  
+  url: string;
+  data: any;
+  method: 'POST' | 'OPTIONS' | 'GET' | 'HEAD' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT' | undefined;
+  header: any;
+  hideLoading: boolean;
+  hideMessage: boolean;
+}) => {
+  // const userStore = useUserStore();
+
   return new Promise((resolve, reject) => {
     if (!hideLoading) {
       uni.showLoading({});
@@ -43,7 +41,7 @@ const request = ({
       header,
       success(response) {
         if (!hideLoading) {
-        	uni.hideLoading();
+          uni.hideLoading();
         }
         let res: IResponse<any> = <IResponse<any>>response.data;
         // 请求成功，状态码不等于0，报错处理
@@ -51,7 +49,6 @@ const request = ({
           if (hideMessage) {
             reject(res || 'Error');
           } else {
-       
             uni.showToast({
               title: `${res.msg}`,
               icon: 'none',
@@ -71,29 +68,44 @@ const request = ({
   });
 };
 
-const get = (url: string, data: any = {}, options: {hideLoading: boolean; hideMessage: boolean} = {hideLoading: true, hideMessage: false}) => request({
-  url,
-  data,
-  method: 'GET',
-  header: { token: getToken() },
-  hideLoading: options.hideLoading,
-  hideMessage: options.hideMessage,
-});
+const get = (
+  url: string,
+  data: any = {},
+  options: { hideLoading: boolean; hideMessage: boolean } = {
+    hideLoading: true,
+    hideMessage: false,
+  }
+) =>
+  request({
+    url,
+    data,
+    method: 'GET',
+    header: { token: getToken() },
+    hideLoading: options.hideLoading,
+    hideMessage: options.hideMessage,
+  });
 
-const post = (url: string, data: any, options: {hideLoading: boolean; hideMessage: boolean} = {hideLoading: true, hideMessage: false})  => request({
-  url,
-  data,
-  method: 'POST',
-  header: { token: getToken() },
-  hideLoading: options.hideLoading,
-  hideMessage: options.hideMessage,
-});
+const post = (
+  url: string,
+  data: any,
+  options: { hideLoading: boolean; hideMessage: boolean } = {
+    hideLoading: true,
+    hideMessage: false,
+  }
+) =>
+  request({
+    url,
+    data,
+    method: 'POST',
+    header: { token: getToken() },
+    hideLoading: options.hideLoading,
+    hideMessage: options.hideMessage,
+  });
 
 const http = {
   request,
   get,
   post,
-}
+};
 
 export default http;
-

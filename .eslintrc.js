@@ -3,7 +3,7 @@
  * @LastEditors: qiye
  * @description: page description
  * @Date: 2023-06-08 13:28:36
- * @LastEditTime: 2023-06-08 13:58:22
+ * @LastEditTime: 2023-06-08 16:55:21
  */
 // .eslintrc.js
 
@@ -19,6 +19,7 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'plugin:prettier/recommended',
     'prettier', // eslint-config-prettier 的缩写
+
     // 解决使用自动导入api报错
     './.eslintrc-auto-import.json',
   ],
@@ -32,5 +33,9 @@ module.exports = {
   plugins: ['vue', 'prettier'], // eslint-plugin- 可以省略
   rules: {
     'vue/multi-word-component-names': 'off',
+    'no-unused-vars': 'off',
+  },
+  globals: {
+    uni: true,
   },
 };

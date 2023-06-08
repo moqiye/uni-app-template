@@ -1,5 +1,3 @@
-
-
 export interface IUserState {
   username?: string;
   realName?: string;

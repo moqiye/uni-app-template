@@ -11,6 +11,4 @@ const login = (params: any) => http.post('/system/login', params);
 
 const logout = () => http.get('/system/logout');
 
-export default {
-
-}
+export default {};

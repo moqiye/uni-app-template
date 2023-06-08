@@ -12,6 +12,4 @@ const pinia = createPinia();
 
 export default pinia;
 
-export {
-  useUserStore
-};
+export { useUserStore };

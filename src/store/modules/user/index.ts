@@ -10,9 +10,7 @@ import type { IUserState } from './types';
 import { removeToken } from '@/utils/auth';
 
 const useUserStore = defineStore('user', {
-  state: (): IUserState => ({
-    
-  }),
+  state: (): IUserState => ({}),
 
   getters: {
     userInfo(state: IUserState): IUserState {

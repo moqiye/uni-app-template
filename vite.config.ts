@@ -1,10 +1,17 @@
+/*
+ * @Author: qiye
+ * @LastEditors: qiye
+ * @description: page description
+ * @Date: 2023-06-08 16:07:51
+ * @LastEditTime: 2023-06-08 16:48:07
+ */
 import { defineConfig, loadEnv } from 'vite';
 import uni from '@dcloudio/vite-plugin-uni';
-import path from 'path';
+import path from 'node:path';
 import AutoImport from 'unplugin-auto-import/vite';
 
 export default ({ mode }) => {
-  const env = loadEnv(mode, process.cwd());
+  const environment = loadEnv(mode, process.cwd());
 
   return defineConfig({
     base: './',
@@ -27,12 +34,12 @@ export default ({ mode }) => {
       },
     },
     build: {
-      sourcemap: env.VITE_BUILD_SOURCEMAP === 'true',
+      sourcemap: environment.VITE_BUILD_SOURCEMAP === 'true',
 
       minify: 'terser',
       terserOptions: {
         compress: {
-          drop_console: env.VITE_BUILD_DROP_CONSOLE === 'true', // 去除 console
+          drop_console: environment.VITE_BUILD_DROP_CONSOLE === 'true', // 去除 console
         },
       },
       chunkSizeWarningLimit: 1500, // chunk 大小警告的限制（以 kbs 为单位）
@@ -46,8 +53,3 @@ export default ({ mode }) => {
     },
   });
 };
-
-// https://vitejs.dev/config/
-// export default defineConfig({
-//   plugins: [uni()],
-// });
