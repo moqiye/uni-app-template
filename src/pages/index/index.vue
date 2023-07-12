@@ -19,12 +19,16 @@
   const title = ref('Hello');
 </script>
 
-<style>
+<style lang="scss" scoped>
   .content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .title:nth-child(1n) {
+      color: red !important;
+    }
   }
 
   .logo {

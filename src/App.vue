@@ -10,4 +10,4 @@
     console.log('App Hide');
   });
 </script>
-<style></style>
+<style scoped></style>
